@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/connexionVue">
+
+    <fragment
+        android:id="@+id/connexionVue"
+        android:name="com.example.louemonchar.presentation.connexion.ConnexionVue"
+        android:label="fragment_connexion"
+        tools:layout="@layout/fragment_connexion" >
+        <action
+            android:id="@+id/vers_inscriptionVue"
+            app:destination="@id/inscriptionVue" />
+        <action
+            android:id="@+id/vers_accueilFragment"
+            app:destination="@id/accueilVue" />
+    </fragment>
+    <fragment
+        android:id="@+id/inscriptionVue"
+        android:name="com.example.louemonchar.presentation.inscription.InscriptionVue"
+        android:label="fragment_inscription"
+        tools:layout="@layout/fragment_inscription" >
+        <action
+            android:id="@+id/vers_connexionVue"
+            app:destination="@id/connexionVue" />
+    </fragment>
+    <fragment
+        android:id="@+id/dateLocationFragment"
+        android:name="com.example.louemonchar.DateLocationFragment"
+        android:label="fragment_date_location"
+        tools:layout="@layout/fragment_date_location" >
+        <action
+            android:id="@+id/vers_voituresDisponiblesFragment"
+            app:destination="@id/voituresDisponiblesVue" />
+
+
+
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/enregistrerVoitureVue"
+        android:name="com.example.louemonchar.presentation.enregistrervoiture.EnregistrerVoitureVue"
+        android:label="fragment_enregistrer__voiture"
+        tools:layout="@layout/fragment_enregistrer__voiture" >
+        <action
+            android:id="@+id/vers_cameraVue"
+            app:destination="@id/cameraVue" />
+        <action
+            android:id="@+id/action_enregistrerVoitureVue_to_favorisFragment"
+            app:destination="@id/favorisFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraVue"
+        android:name="com.example.louemonchar.presentation.camera.CameraVue"
+        android:label="fragment_nav_camera"
+        tools:layout="@layout/fragment_nav_camera" >
+        <action
+            android:id="@+id/vers_enregistrerVoitureVue"
+            app:destination="@id/enregistrerVoitureVue" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsVoitureFragment"
+        android:name="com.example.louemonchar.DetailsVoitureFragment"
+        android:label="fragment_details_voiture"
+        tools:layout="@layout/fragment_details_voiture" >
+        <action
+            android:id="@+id/vers_reserverVoitureFragment"
+            app:destination="@id/reserverVoitureFragment">
+
+        <argument
+            android:name="modèle_voitures_reservees"
+            app:argType="string" />
+        <argument
+            android:name="passagers_voitures_reservees"
+            app:argType="string" />
+        <argument
+            android:name="propriétaire_voitures_reservees"
+            app:argType="string" />
+        <argument
+            android:name="img_voitures_reservees"
+            app:argType="integer" />
+        <argument
+            android:name="année_voitures_reservees"
+            app:argType="string" />
+        <argument
+            android:name="date_de_location_reservees"
+            app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_detailsVoitureFragment_to_voituresDisponiblesVue"
+            app:destination="@id/voituresDisponiblesVue" />
+        <action
+            android:id="@+id/action_detailsVoitureFragment_to_enregistrerVoitureVue"
+            app:destination="@id/enregistrerVoitureVue" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/reserverVoitureFragment"
+        android:name="com.example.louemonchar.ReserverVoitureFragment"
+        android:label="fragment_reserver_voiture"
+        tools:layout="@layout/fragment_reserver_voiture" >
+        <action
+            android:id="@+id/action_reserverVoitureFragment_to_favorisFragment"
+            app:destination="@id/favorisFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/accueilVue"
+        android:name="com.example.louemonchar.presentation.accueil.AccueilVue"
+        android:label="fragment_accueil"
+        tools:layout="@layout/fragment_accueil" >
+        <action
+            android:id="@+id/versDatelocation"
+            app:destination="@id/dateLocationFragment" >
+
+        <argument
+            android:name="nomVoitures"
+            app:argType="string" />
+        <argument
+            android:name="logoVoitures"
+            app:argType="integer" />
+
+
+        </action>
+
+
+        <action
+            android:id="@+id/action_accueilFragment_to_enregistrerVoitureVue"
+            app:destination="@id/enregistrerVoitureVue" />
+        <!--
+        <action
+            android:id="@+id/action_accueilVue_to_voituresDisponiblesVue"
+            app:destination="@id/voituresDisponiblesVue" />
+            -->
+        <action
+            android:id="@+id/action_accueilVue_to_voituresDisponiblesVue"
+            app:destination="@id/voituresDisponiblesVue">
+            <argument
+                android:name="nomModèle"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_accueilVue_to_favorisFragment"
+            app:destination="@id/favorisFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/voituresDisponiblesVue"
+        android:name="com.example.louemonchar.presentation.voituresdisponibles.VoituresDisponiblesVue"
+        android:label="fragment_voitures_disponibles"
+        tools:layout="@layout/fragment_voitures_disponibles" >
+        <action
+            android:id="@+id/vers_detailsVoitureFragment"
+            app:destination="@id/detailsVoitureFragment" />
+        <action
+            android:id="@+id/action_voituresDisponiblesVue_to_enregistrerVoitureVue"
+            app:destination="@id/enregistrerVoitureVue" />
+        <action
+            android:id="@+id/action_voituresDisponiblesVue_to_favorisFragment"
+            app:destination="@id/favorisFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favorisFragment"
+        android:name="com.example.louemonchar.FavorisFragment"
+        android:label="fragment_favoris"
+        tools:layout="@layout/fragment_favoris" >
+        <action
+            android:id="@+id/action_favorisFragment_to_accueilVue"
+            app:destination="@id/accueilVue" />
+        <action
+            android:id="@+id/action_favorisFragment_to_accueilVue2"
+            app:destination="@id/accueilVue" />
+        <action
+            android:id="@+id/action_favorisFragment_to_enregistrerVoitureVue"
+            app:destination="@id/enregistrerVoitureVue" />
+        <action
+            android:id="@+id/action_favorisFragment_to_voituresDisponiblesVue"
+            app:destination="@id/voituresDisponiblesVue" />
+        <action
+            android:id="@+id/action_favorisFragment_to_reserverVoitureFragment"
+            app:destination="@id/reserverVoitureFragment" />
+    </fragment>
+
+</navigation>
